@@ -107,7 +107,7 @@ Module ProjectEuler
 End Module
 ```
 
-Guideline 3: Perfection of Part. Each function/procedure should do conceptually one thing and one thing only. This is illustrated in the following example.
+Guideline 3: Perfection of Part. Each function/procedure should do conceptually one thing and one thing only. This is illustrated in the following example (see ReverseDigits).
 
 Example 004: Solution to Project Euler Problem 004
 ```
