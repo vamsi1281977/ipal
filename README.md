@@ -88,7 +88,7 @@ Module ProjectEuler
       Dim c as S0.Int64 = b * b
       Dim d as S0.Int64 = 0L
       While b <= a
-        if (a Mod b) = 0L Then
+        If (a Mod b) = 0L Then
           a = a \ b
           d = b
         Else
