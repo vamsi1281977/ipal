@@ -151,3 +151,58 @@ Module ProjectEuler
   End Sub
 End Module
 ```
+
+Guideline 4: Adequacy of collection. Not only should each function/procedure should conceptually do one thing only, but also the collection of functions/procedures should solve the problem at hand (See GreatestCommonDivisor and LeastCommonMultiple in the example below).
+
+```
+Option Strict On
+Option Infer Off
+
+Imports S0 = System
+
+Module ProjectEuler
+  Function GreatestCommonDivisor(ByVal a as S0.Int64,
+                                 ByVal b as S0.Int64) as S0.Int64
+    If a < 0L Then
+      Return GreatestCommonDivisor((- a), b)
+    ElseIf b < 0L Then
+      Return GreatestCommonDivisor(a, (- b))
+    ElseIf a = 0L Then
+      If b = 0L Then
+        Throw New Exception("check failed")
+      Else
+        Return b
+      End If
+    Else
+      While b > 0L
+        Dim c as S0.Int64 = a Mod b
+        a = b
+        b = c
+      End While
+      Return a
+    End If
+  End Function
+
+  Function LeastCommonMultiple(ByVal a As S0.Int64,
+                               ByVal b as S0.Int64) As S0.Int64
+    Dim c as S0.Int64 = GreatestCommonDivisor(a, b)
+    Dim d as S0.Int64 = a \ c
+    Dim e as S0.Int64 = b * d
+    Return e
+  End Function
+
+  Function Solve(ByVal a As S0.Int64) As S0.Int64
+    Dim b as S0.Int64 = 1L
+    Dim c as S0.Int64
+    For c = 1 to a
+      b = LeastCommonMultiple(b, c)
+    Next c
+    Return b
+  End Function
+
+  Sub Main(ByVal args As String())
+    Dim a As S0.Int64 = Solve(20L)
+    S0.Console.WriteLine(a)
+  End Sub
+End Module
+```
