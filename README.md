@@ -8,7 +8,7 @@ Guideline 1: Always use 'Option Strict On' and 'Option Infer Off'. The motivatio
 
 Guideline 2: All namespaces used must be explicitly imported and aliased. Do not directly alias a type, all types must be accessed through a namespace alias. The namespace aliasing convention is: for namespaces starting with the letter S - S0, S1, ..., S9, SA, SB, ..., SZ. If you ever need to import more than 36 namespaces beginning with the same letter please let us know!
 
-Example 0 - Solution to Project Euler Problem 001:
+Example 1 - Solution to Project Euler Problem 001:
 ```
 Option Strict On
 Option Infer  Off
@@ -40,7 +40,7 @@ Module ProjectEuler
 End Module
 ```
 
-Example 1 - Solution to Project Euler Problem 002:
+Example 2 - Solution to Project Euler Problem 002:
 ```
 Option Strict On
 Option Infer  Off
@@ -65,6 +65,43 @@ Module ProjectEuler
 
   Sub Main(ByVal args as String())
     Dim a as S0.Int64 = Solve(4000000L)
+    S0.Console.WriteLine(a)
+  End Sub
+End Module
+```
+
+Example 3 - Solution to Problem 003
+```
+Option Strict On
+Option Infer  Off
+
+Imports S0 = System
+
+Module ProjectEuler
+  Function LargestPrimeFactor(ByVal a as S0.Int64) as S0.Int64
+    If a < 2L Then
+      Throw New Exception("check failed")
+    ElseIf a < 4L Then
+      Return a
+    Else
+      Dim b as S0.Int64 = 2L
+      Dim c as S0.Int64 = b * b
+      Dim d as S0.Int64 = 0L
+      While b <= a
+        if (a Mod b) = 0L Then
+          a = a \ b
+          d = b
+        Else
+          b = b + If(b = 2L, 1L, 2L)
+          c = b * b
+        End If
+      End While
+      Return S0.Math.Max(a, d)
+    End If
+  End Function
+
+  Sub Main(ByVal args as String())
+    Dim a as S0.Int64 = LargestPrimeFactor(600851475143L)
     S0.Console.WriteLine(a)
   End Sub
 End Module
