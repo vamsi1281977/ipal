@@ -8,7 +8,7 @@ Guideline 1: Always use 'Option Strict On' and 'Option Infer Off'. The motivatio
 
 Guideline 2: All namespaces used must be explicitly imported and aliased. Do not directly alias a type, all types must be accessed through a namespace alias. The namespace aliasing convention is: for namespaces starting with the letter S - S0, S1, ..., S9, SA, SB, ..., SZ. If you ever need to import more than 36 namespaces beginning with the same letter please let us know!
 
-Example 0:
+Example 0 - Solution to Project Euler Problem 001:
 ```
 Option Strict On
 Option Infer  Off
