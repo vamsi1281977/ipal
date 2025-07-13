@@ -39,3 +39,33 @@ Module ProjectEuler
   End Sub
 End Module
 ```
+
+Example 1 - Solution to Project Euler Problem 002:
+```
+Option Strict On
+Option Infer  Off
+
+Imports S0 = System
+
+Module ProjectEuler
+  Function Solve(ByVal a as S0.Int64) as S0.Int64
+    Dim b as S0.Int64 = 0L
+    Dim c as S0.Int64 = 1L
+    Dim d as S0.Int64 = 0L
+    While b <= a
+      If (b Mod 2L) = 0L Then
+        d = b + d
+      End If
+      Dim e as S0.Int64 = b + c
+      b = c
+      c = e
+    End While
+    Return d
+  End Function
+
+  Sub Main(ByVal args as String())
+    Dim a as S0.Int64 = Solve(4000000L)
+    S0.Console.WriteLine(a)
+  End Sub
+End Module
+```
