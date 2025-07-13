@@ -111,4 +111,43 @@ Guideline 3: Perfection of Part. Each function/procedure should do conceptually 
 
 Example 004: Solution to Project Euler Problem 004
 ```
+Option Strict On
+Option Infer Off
+
+Imports S0 = System
+
+Module ProjectEuler
+  Function ReverseDigits(ByVal a As S0.Int64) As S0.Int64
+    Const kBase As S0.Int64 = 10L
+    Dim b As S0.Int64 = 0L
+    While a > 0L
+      Dim c As S0.Int64
+      c = a Mod kBase
+      a = a \ kBase
+      b = (b * kBase) + c
+    End While
+    Return b
+  End Function
+
+  Function Solve(ByVal a As S0.Int64, ByVal b As S0.Int64) As S0.Int64
+    Dim c As S0.Int64 = 0L
+    Dim d As S0.Int64
+    For d = a To b
+      Dim e As S0.Int64
+      For e = d To b
+        Dim f As S0.Int64 = d * e
+        Dim g As S0.Int64 = ReverseDigits(f)
+        If f = g Then
+          c = S0.Math.Max(c, f)
+        End If
+      Next e
+    Next d
+    Return c
+  End Function
+
+  Sub Main(ByVal args As String())
+    Dim a As S0.Int64 = Solve(100L, 999L)
+    S0.Console.WriteLine(a)
+  End Sub
+End Module
 ```
