@@ -8,3 +8,34 @@ Guideline 1: Always use 'Option Strict On' and 'Option Infer Off'. The motivatio
 
 Guideline 2: All namespaces used must be explicitly imported and aliased. Do not directly alias a type, all types must be accessed through a namespace alias. The namespace aliasing convention is: for namespaces starting with the letter S - S0, S1, ..., S9, SA, SB, ..., SZ. If you ever need to import more than 36 namespaces beginning with the same letter please let us know!
 
+Example 0:
+```
+Option Strict On
+Option Infer  Off
+
+Imports S0 = System
+
+Module ProjectEuler
+  Function Solve(ByVal a as S0.Int64,
+                 ByVal b as S0.Int64,
+                 ByVal c as S0.Int64) as S0.Int64
+    Dim d as S0.Int64 = 0L
+    Dim e as S0.Int64
+    For e = 0 To c Step a
+      d = d + e
+    Next e
+    Dim f as S0.Int64
+    For f = 0 To c Step b
+      If (f Mod a) <> 0L Then
+        d = d + f
+      End If
+    Next f
+    Return d
+  End Function
+
+  Sub Main(ByVal args as String())
+    Dim a as S0.Int64 = Solve(3L, 5L, 999L)
+    S0.Console.WriteLine(a)
+  End Sub
+End Module
+```
