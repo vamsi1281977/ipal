@@ -206,3 +206,34 @@ Module ProjectEuler
   End Sub
 End Module
 ```
+
+Guideline 5: There may be exceptions to guidelines 3 and 4.  Sometimes it may be both easier and cleaner to implement a monolithic function that solves the problem at hand. See Examples 1,2 and 6.
+
+Example 6 - Solution to Project Euler Problem 006:
+
+```
+Option Strict On
+Option Infer  Off
+
+Imports S0 = System
+
+Module ProjectEuler
+  Function Solve(ByVal a as S0.Int64) as S0.Int64
+    Dim b as S0.Int64 = 0L
+    Dim c as S0.Int64 = 0L
+    Dim d as S0.Int64
+    For d = 1 To a
+      b = b + d
+      c = c + (d * d)
+    Next d
+    Dim e as S0.Int64 = b * b
+    Dim f as S0.Int64 = e - c
+    Return f
+  End Function
+
+  Sub Main(ByVal args as String())
+    Dim a as S0.Int64 = Solve(100L)
+    S0.Console.WriteLine(a)
+  End Sub
+End Module
+```
