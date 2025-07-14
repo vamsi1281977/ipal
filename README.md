@@ -207,7 +207,7 @@ Module ProjectEuler
 End Module
 ```
 
-Guideline 5: There may be exceptions to guidelines 3 and 4.  Sometimes it may be both easier and cleaner to implement a monolithic function that solves the problem at hand. See Examples 1,2 and 6.
+Guideline 5: There may be exceptions to guidelines 3 and 4.  Sometimes it may be both easier and cleaner to implement one function/procedure that solves the problem at hand. See Examples 1,2 and 6.
 
 Example 6 - Solution to Project Euler Problem 006:
 
