@@ -4,7 +4,7 @@ IPAL is a subset of Visual Basic .NET. We believe this subset provides a good fo
 
 Guideline 0: All programs must be written in a single file. The motivation for this is the original Standard Pascal an academic language which supported only single files.
 
-Guideline 1: Always use 'Option Strict On' and 'Option Infer Off'. The motivation for this is that explicitly specified types make the code more readable and Visual Basic is a verbose programming language anyway.
+Guideline 1: Always use 'Option Explicit On', 'Option Strict On' and 'Option Infer Off'. The motivation for this is that explicitly specified variables with types make the code more readable and Visual Basic is a verbose programming language anyway.
 
 Guideline 2: All namespaces used must be explicitly imported and aliased. Do not directly alias a type, all types must be accessed through a namespace alias. The namespace aliasing convention is: for namespaces starting with the letter S - S0, S1, ..., S9, SA, SB, ..., SZ. If you ever need to import more than 36 namespaces beginning with the same letter please let us know!
 
