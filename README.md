@@ -10,10 +10,12 @@ Guideline 2: All namespaces used must be explicitly imported and aliased. Do not
 
 Example 1 - Solution to Project Euler Problem 001:
 ```
-Option Strict On
-Option Infer  Off
+Option Explicit On
+Option Infer    Off
+Option Strict   On
 
 Imports S0 = System
+Imports S1 = System.Diagnostics
 
 Module ProjectEuler
   Function Solve(ByVal a as S0.Int64,
@@ -34,8 +36,11 @@ Module ProjectEuler
   End Function
 
   Sub Main(ByVal args as String())
-    Dim a as S0.Int64 = Solve(3L, 5L, 999L)
-    S0.Console.WriteLine(a)
+    Dim a as S1.Stopwatch = S1.Stopwatch.StartNew()
+    Dim b as S0.Int64 = Solve(3L, 5L, 999L)
+    a.Stop()
+    S0.Console.WriteLine(b)
+    S0.Console.WriteLine(">>>>>> Time taken: " & a.ElapsedMilliseconds & " ms. <<<<<<")
   End Sub
 End Module
 ```
