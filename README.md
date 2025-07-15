@@ -1,6 +1,6 @@
 IPAL: Imperative Procedural Abstraction Language (authors: Vamsikrishna Kalapala, Microsoft Copilot)
 
-IPAL is a subset of Visual Basic .NET. We believe this subset provides a good foundation for learning the most important aspect of computing, that is: procedural abstraction. A functional procedural abstraction language could be Scheme, it is from Structure and Interpretation of Computer Programs that we get the phrase: perfection of part and adequacy of collection (the part is a function/procedure, the collection is a set of procedures/functions). The vehicle for learning is code to solve Project Euler problems 001 through 010 (for now). We will specify the guidelines for IPAL and illustrate with code that solves Project Euler problems.
+IPAL is a subset of Visual Basic .NET. We believe this subset provides a good foundation for learning the most important aspect of computing, that is: procedural abstraction. A functional procedural abstraction language could be Scheme, it is from Structure and Interpretation of Computer Programs that we get the phrase: perfection of part and adequacy of collection (the part is a function/procedure, the collection is a set of procedures/functions). The vehicle for learning is code to solve Project Euler problems 001 through 006 (for now). We will specify the guidelines for IPAL and illustrate with code that solves Project Euler problems.
 
 Guideline 0: All programs must be written in a single file. The motivation for this is the original Standard Pascal an academic language which supported only single files.
 
@@ -127,10 +127,12 @@ Guideline 3: Perfection of Part. Each function/procedure should do conceptually 
 
 Example 004: Solution to Project Euler Problem 004
 ```
-Option Strict On
-Option Infer Off
+Option Explicit On
+Option Infer    Off
+Option Strict   On
 
 Imports S0 = System
+Imports S1 = System.Diagnostics
 
 Module ProjectEuler
   Function ReverseDigits(ByVal a As S0.Int64) As S0.Int64
@@ -162,8 +164,11 @@ Module ProjectEuler
   End Function
 
   Sub Main(ByVal args As String())
-    Dim a As S0.Int64 = Solve(100L, 999L)
-    S0.Console.WriteLine(a)
+    Dim a as S1.Stopwatch = S1.Stopwatch.StartNew()
+    Dim b As S0.Int64 = Solve(100L, 999L)
+    a.Stop()
+    S0.Console.WriteLine(b)
+    S0.Console.WriteLine(">>>>>> Time taken: " & a.ElapsedMilliseconds & " ms. <<<<<<")
   End Sub
 End Module
 ```
