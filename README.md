@@ -83,10 +83,12 @@ End Module
 
 Example 3 - Solution to Problem 003
 ```
-Option Strict On
-Option Infer  Off
+Option Explicit On
+Option Infer    Off
+Option Strict   On
 
 Imports S0 = System
+Imports S1 = System.Diagnostics
 
 Module ProjectEuler
   Function LargestPrimeFactor(ByVal a as S0.Int64) as S0.Int64
@@ -112,8 +114,11 @@ Module ProjectEuler
   End Function
 
   Sub Main(ByVal args as String())
-    Dim a as S0.Int64 = LargestPrimeFactor(600851475143L)
-    S0.Console.WriteLine(a)
+    Dim a as S1.Stopwatch = S1.Stopwatch.StartNew()
+    Dim b as S0.Int64 = LargestPrimeFactor(600851475143L)
+    a.Stop()
+    S0.Console.WriteLine(b)
+    S0.Console.WriteLine(">>>>>> Time taken: " & a.ElapsedMilliseconds & " ms. <<<<<<")
   End Sub
 End Module
 ```
